@@ -27,5 +27,8 @@ notifications:
 # failing test, we want to see both. Configure golangci-lint with a
 # .golangci.yml file at the top level of your repo.
 script:
-  - go install
+  - mkdir gopath
+  - export GOPATH=`pwd`/gopath
+  - go get github.com/adamsiemion/autopilot
+  - cd $GOPATH/src/github.com/adamsiemion/autopilot
   - go build
